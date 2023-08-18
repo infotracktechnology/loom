@@ -33,6 +33,14 @@
   <div class="card-body">
      <form method="post" id="myForm" action="">
 
+                <div class="title">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Staff Master</h4>
+                        </div>
+                    </div>
+                </div>
+
                     <div class="row">
  
                     <div class=" col-md-3 form-group">
@@ -135,18 +143,20 @@
 
                     </div> 
 
-                    
+                    <div class="col-md-3 form-group">
+                      <label>Choose a Photo</label>
+                      <input type="file" name="photo" id="image-upload" class="form-control form-control-sm">
 
+                    </div>
 
-                    <div class="form-group row mb-4">
-            
+                    <!-- <div class="form-group row mb-4">
                       <div class="col-sm-12 col-md-7">
                         <div id="image-preview" class="image-preview">
                           <label for="image-upload" id="image-label">Choose a Photo</label>
                           <input type="file" name="photo" id="image-upload"  accept="image/*" />
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     </div>
 
 

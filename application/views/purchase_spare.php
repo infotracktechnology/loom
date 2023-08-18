@@ -29,6 +29,14 @@
   <div class="card-body">
   <form method="post" id="myForm" action="">
 
+  <div class="title">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Spare Purchase Entry</h4>
+                        </div>
+                    </div>
+                </div>
+
                     <div class="row">
  <div class="col-md-3 form-group">
   <label class="form-label">Purchase No</label>
