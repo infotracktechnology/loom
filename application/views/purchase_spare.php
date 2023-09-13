@@ -158,30 +158,7 @@
       <th scope="col">Action</th>
     </tr>
   </thead>
-  <tfoot>
-    <tr>
-      <th colspan="2">SGST:</th>
-      <th colspan="2"><input type="text" name="sgst" id="sgst" class="form-control form-control-sm" readonly></th>
-      <th colspan="2">Total Amount:</th>
-      <th colspan="2"><input type="text" name="total_amt" id="total_amt" class="form-control form-control-sm" readonly></th>
-    </tr>
 
-    <tr>
-      <th colspan="2">CGST:</th>
-      <th colspan="2"><input type="text" name="cgst" id="cgst" class="form-control form-control-sm" readonly></th>
-      <th colspan="2">Total Tax Amount:</th>
-      <th colspan="2"><input type="text" name="total_taxamt" id="total_tax_amt" class="form-control form-control-sm" readonly></th>
-    </tr>
-
-
-    <tr>
-      <th colspan="2">IGST:</th>
-      <th colspan="2"><input type="text" name="igst" id="cgst" class="form-control form-control-sm" readonly></th>
-      <th colspan="2">Final Total:</th>
-      <th colspan="2"><input type="text" name="final_total" id="final_total" class="form-control form-control-sm" readonly></th>
-    </tr>
-      
-  </tfoot>
 </table>
 
     <div class="col-sm-12 text-center mt-4">
@@ -214,106 +191,6 @@
 <script src="<?php echo base_url();?>assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
 <script>
-
-const mytable = $('#myTable').DataTable({
-
-});
-const supplier = $('#Supplier');
-const address = $('#Address');
-const mobileNo = $('#Mobile_no');
-const gstNo = $('#GST_No');
-const state = $('#State');
-
-const productform = $('#product-form');
-const productname = $('#Product-name');
-const quantity = $('#quantity');
-const rate = $('#rate');
-const amount = $('#amount');
-const tax = $('#tax');
-
-quantity.keyup(CalAmount);
-rate.keyup(CalAmount);
-
-productname.change(function(){  
-});
-
-function CalAmount(){
-  let val = quantity.val() * rate.val();
-  val = val.toFixed(2);
-  amount.val(val); 
-}
-
-
-productform.submit(function(e){
-  e.preventDefault();
-  const fromdata = new FormData(this);
-  fromdata.append('Product', $("#Product-name option:selected").text());
-  const data = {};
-  fromdata.forEach((value, key) => {
-    data[key] = value;
-  })
-  
-  mytable.row.add([
-    mytable.rows().count()+1,
-    mytable.rows().count(),
-    mytable.rows().count(),
-    mytable.rows().count(),
-    mytable.rows().count(),
-    mytable.rows().count(),
-    mytable.rows().count(),
-    mytable.rows().count(),
-  ]).draw();
-  console.log(mytable.column(0).sum());
-})
-
-supplier.change((e) => {
-  const id = supplier.val();
-  if (id) {
-    $.ajax({
-      url: `<?php echo base_url();?>PurchaseSpareController/GetSupplier/${id}`,
-      method: 'GET',
-      dataType: 'json',
-      success: (data) => {
-        address.val(data.Address);
-        mobileNo.val(data.Mobile_no);
-        gstNo.val(data.GST_No);
-        state.val(data.State);
-      },
-      error: () => {
-        alert('Something went wrong.');
-      },
-    });
-  } else {
-    address.val('');
-    mobileNo.val('');
-    gstNo.val('');
-    state.val('');
-  }
-});
-
-
-  $('#Product-name').change(function(){
-    var id = $(this).val();
-    if(id != ''){
-    $.ajax({
-        url: '<?php echo base_url();?>PurchaseSpareController/GetProduct/'+id,
-        method: 'GET',
-        dataType: 'json',
-        success: (data) => {
-          $('input[name="hsn"]').val(data.hsn);
-          $('input[name="tax"]').val(data.Tax);
-      },
-        error: (error) => {
-          alert('something went wrong');
-      }
-    
-    });
-  }
-  else{
-    $('input[name="hsn"]').val('');
-    $('input[name="tax"]').val('');
-  }
-  });
 
 
 </script>
