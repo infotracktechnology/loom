@@ -322,7 +322,7 @@
 
 <li class="dropdown">
  
-<a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="layers"></i><span>Production</span></a>
+<a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="layers"></i><span>Transaction</span></a>
  
 <ul class="dropdown-menu">
  
