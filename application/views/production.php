@@ -15,6 +15,7 @@
 
 <body>
   <div class="loader"></div>
+
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
     <?php include_once 'sidebar.php';?>
@@ -22,14 +23,19 @@
  <section class="section">
   <div class="section-body">
      <div class="card card-primary">
-    <div class="card-header">
-        <h4>Production List</h4>
+    <div class="card-header row">
+
+         <div class="col-10">
+            <h4> Production List</h4>
+         </div>
+        
+         <div class="col-2 float-right">
+               <a  href="<?php echo base_url("production_entry");?>" class="btn text-white btn-primary">New Production Entry</a>
+        </div>
+   
     </div>
   <div class="card-body">
-     <form method="post" id="myForm" action="">
-
-     </form>
-
+    
   
 </div>
 </div>

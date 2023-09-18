@@ -326,7 +326,7 @@
  
 <ul class="dropdown-menu">
  
-<li><a class="nav-link" href="<?php echo base_url("/production");?>"> </a></li>
+<li><a class="nav-link" href="<?php echo base_url("production");?>"> Production </a></li>
 </ul>
 
 </li>
