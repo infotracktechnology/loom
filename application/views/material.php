@@ -157,7 +157,7 @@
         <td><?php echo $row['material_category'];?></td>
         <td><?php echo $row['measurement'];?></td>
         <td><?php echo $row['opening_stock'];?></td>
-        <td><button type="button" name="edit" id="<?php echo $row['material_id'];?>" class="btn btn-primary">Edit</button> 
+        <td><button type="button" name="edit" id="<?php echo $row['material_id'];?>" class="btn btn-primary"><i class="fa fa-edit"></i></button> 
         </td>
       </tr>
       <?php } ?>
