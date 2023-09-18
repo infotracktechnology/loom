@@ -153,7 +153,7 @@
       <tr>
         <th scope="row"><?php echo $key+1;?></th>
         <td><?php echo $row['material_name'];?></td>
-        <td><?php echo $row['material_name'];?></td>
+        <td><?php echo $row['count'];?></td>
         <td><?php echo $row['material_category'];?></td>
         <td><?php echo $row['measurement'];?></td>
         <td><?php echo $row['opening_stock'];?></td>
