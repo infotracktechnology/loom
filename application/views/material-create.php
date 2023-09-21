@@ -39,8 +39,7 @@
                <div class="col-md-3 form-group">
                  <label class="form-label">Material Name</label>
                  <input type="text" name="material_name" value="" id="material_name" class="form-control form-control-sm  text-capitalize" required>
-                
-
+            
                </div>
 
 
