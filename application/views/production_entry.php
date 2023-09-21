@@ -74,6 +74,11 @@
         </template>
         </select>
         </div>
+
+        <div class="col-md-3 form-group">
+        <label>Product</label>
+        <input type="text" class="form-control form-control-sm" name="product"  readonly>
+        </div>
         
 
         <div class="col-md-12">
@@ -82,43 +87,16 @@
         </div>
         </div>
 
-        <template x-for="(item,i) in material">
+        <template x-for="(item,i) in materials">
         <div class="row">
-
-        <div class="col-md-2 form-group">
-        <select name="material_id[]" @change="selectMaterial(item)" x-model="item.material_id" class="form-control form-control-sm" required>
-        <option value="" selected disabled>Select Material</option>
-        <template x-for="material in materials">
-        <option :value="material.material_id" x-text="material.material_name"></option>
-        </template>
-        </select>
-        </div>
-
-        <div class="col-md-1 form-group">
-        <input type="text" placeholder="Count" class="form-control form-control-sm" name="count[]" x-model="item.count">
-        </div>
-
-        <div class="col-md-2 form-group">
-        <input type="text" placeholder="Warp Ends" class="form-control form-control-sm" name="warp_ends[]" x-model="item.warp_ends">
-        </div>
-
-        <div class="col-md-2 form-group">
-        <input type="text" placeholder="Bobbin Ends" class="form-control form-control-sm" name="bobbin_ends[]" x-model="item.bobbin_ends">
-        </div>
-
-        <div class="col-md-1 form-group">
-        <button type="button" class="btn btn-danger" @click="confirm('Are you sure?') ? material.splice(i, 1) : ''"><i class="fa fa-trash-alt"></i></button>
-        </div>
 
         </div>
         </template>
 
         <div class="row">
+  
         <div class="col-md-2 form-group">
-        <button type="button" class="btn btn-warning" @click="material.push({material_id:'',count:'',warp_ends:'',bobbin_ends:''})">Add Material</button>
-        </div>
-        <div class="col-md-2 form-group">
-        <button type="submit" class="btn btn-primary" id="add_more">Submit</button>
+        <button type="submit" class="btn btn-primary" >Submit</button>
         </div>
         </div>
      
@@ -150,19 +128,11 @@
 
 <script>
 
-
 document.addEventListener('alpine:init', () => {
         Alpine.data('app', () => ({
           looms : JSON.parse(`<?php echo json_encode($looms);?>`),
           loom_weavers : JSON.parse(`<?php echo json_encode($loom_weavers);?>`),
-          materials : JSON.parse(`<?php echo json_encode($material);?>`),
-          material:[{material_id:'',count:'',warp_ends:'',bobbin_ends:''}],
-          selectMaterial(item){
-            var data = this.materials.find(x => x.material_id == item.material_id);
-            item.count = data.count;
-            item.warp_ends = data.warp_ends;
-            item.bobbin_ends = data.bobbin_ends;
-          },
+          materials:[],
           init(){
             
           }
