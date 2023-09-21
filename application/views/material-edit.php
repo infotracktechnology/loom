@@ -46,7 +46,7 @@
 
                <div class="col-md-3 form-group" id="count">
                  <label class="form-label" >Count</label>
-                 <input type="text" name="count"  value="<?php echo $material->count ?? '';?>" class="form-control form-control-sm " />
+                 <input type="text" name="count"  value="<?php echo $material->count ?? '';?>" class="form-control form-control-sm" />
                </div>
 
 
@@ -149,19 +149,21 @@ $('#material_name').change(function(event) {
     var material_name = $(this).val().toUpperCase();
     $('#material_colour, #material_colour_code, #warp_ends, #bobbin_ends, #count, #material_category').hide();
 
-    $(`input[name="material_colour"], input[name="material_colour_code"], input[name="count"], input[name="material_category"], input[name="warp_ends"], input[name="bobbin_ends"]`).val("");
-
     if (material_name === "WEFT YARN") {
         $('#count, #material_category').show();
+        $(`input[name="material_colour"],input[name="material_colour_code"],input[name="warp_ends"],input[name="bobbin_ends"]`).val("");
     } else if (material_name === "WARP YARN") {
         $('#warp_ends').show();
         $('#count, #material_category').show();
+        $(`input[name="material_colour"],input[name="material_colour_code"],input[name="bobbin_ends"]`).val("");
     } else if (material_name === "BOBBIN") {
         $('#material_colour, #material_colour_code, #bobbin_ends').show();
+        $(`input[name="count"],input[name="material_category"],input[name="warp_ends"]`).val("");
     } else if (material_name === "WEFT COLOR") {
         $('#material_colour, #material_colour_code').show();
+        $(`input[name="count"],input[name="material_category"],input[name="warp_ends"],input[name="bobbin_ends"]`).val("");
     } else {
-
+        
         $('#material_colour, #material_colour_code, #count, #material_category, #warp_ends, #bobbin_ends').show();
     }
 });
