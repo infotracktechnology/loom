@@ -16,7 +16,8 @@ class LoomController extends CI_Controller {
     }
 
     public function create(){
-        $this->load->view('loom-create');
+        $products = $this->db->get('product_master')->result_object();
+        $this->load->view('loom-create',compact('products'));
     }
 
 
@@ -29,7 +30,8 @@ class LoomController extends CI_Controller {
 
     public function edit($id){
         $loom = $this->db->get_where('loom_master',array('loom_id'=>$id))->row();
-        $this->load->view('loom-edit',compact('loom'));
+        $products = $this->db->get('product_master')->result_object();
+        $this->load->view('loom-edit',compact('loom','products'));
     }
 
 

@@ -94,6 +94,17 @@
 </div>
 
 
+<div class="col-md-3 form-group">
+<label class="form-label">Product</label>
+<select name="product" id="product" class="form-control form-control-sm" required>
+<option value="">Select Product</option>
+<?php foreach($products as $key => $row) { ?>
+<option value="<?php echo $row->id;?>"><?php echo $row->product_name;?></option>
+<?php } ?>
+</select>
+</div>
+
+
 
 <div class="col-md-3 form-group">
 <label class="form-label">Status</label>
