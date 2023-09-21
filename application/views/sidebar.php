@@ -231,14 +231,12 @@
 
 
               <ul class="dropdown-menu">
-
-
+                
+                 <li><a class="nav-link" href="<?php echo base_url();?>LoomController/">Loom </a></li>
 
                  <li><a class="nav-link" href="<?php echo base_url();?>MaterialController/">Material </a></li>
 
                  <li><a class="nav-link" href="<?php echo base_url();?>ProductController/">Product </a></li>
-
-                 <li><a class="nav-link" href="<?php echo base_url();?>LoomController/">Loom </a></li>
 
                  <li><a class="nav-link" href="<?php echo base_url();?>SparePartController/">Spare Part </a></li>
 

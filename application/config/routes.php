@@ -61,6 +61,13 @@ $route['loom/(:num)/edit']['GET'] = 'LoomController/edit/$1';
 $route['loom/(:num)/update']['POST'] = 'LoomController/update/$1'; 
 $route['loom/(:num)/delete']['POST'] = 'LoomController/delete/$1';
 
+$route['material']['GET'] = 'MaterialController/index';           
+$route['material/create']['GET'] = 'MaterialController/create';      
+$route['material/store']['POST'] = 'MaterialController/store';         
+$route['material/(:num)/edit']['GET'] = 'MaterialController/edit/$1'; 
+$route['material/(:num)/update']['POST'] = 'MaterialController/update/$1'; 
+$route['material/(:num)/delete']['POST'] = 'MaterialController/delete/$1';
+
 
 
 //$route['login'] = "AuthController/index";

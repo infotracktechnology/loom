@@ -29,7 +29,7 @@
 
 <div class="row">
 <div class="col-12">
-      <h5 class="col-red">Add Loom</h5>
+      <h5 class="text-dark">Add Loom</h5>
     </div>
 
 <div class="col-md-3 form-group">

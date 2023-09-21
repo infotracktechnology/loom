@@ -28,7 +28,7 @@
     <div class="row">
 
     <div class="col-10">
-      <h5 class="col-red">Loom List</h5>
+      <h5 class="text-dark">Loom List</h5>
     </div>
     <div class="col-2 mb-2">
       <a href="<?php echo base_url("loom/create");?>" class="btn btn-primary text-white">Add Loom</a>
