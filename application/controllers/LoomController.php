@@ -5,39 +5,50 @@ class LoomController extends CI_Controller {
  
  	function __construct() {
         parent::__construct();
-    }
-
-    public function index()
-    {
-        if($this->session->userdata('name') != '')
-        {
-         $this->load->view('loom_master',array('looms' => $this->db->get('loom_master')->result()));
+        if(!isset($this->session->name)){
+            redirect(''.base_url().'AuthController/index');
         }
-        else
-        {
-         redirect('AuthController/logout');
-        }
-       
     }
 
-    public function show($id)
-    {
-        $this->output->set_content_type('application/json')->set_output(json_encode($this->db->get_where('loom_master',array('loom_id' => $id))->row()));
+    public function index(){
+        $looms = $this->db->get('loom_master')->result_array();
+        $this->load->view('loom',compact('looms'));
     }
 
-    public function create()
-    {
-        $this->db->insert('loom_master',$this->input->post());
+    public function create(){
+        $this->load->view('loom-create');
     }
 
-    public function update()
-    {
-       $data = ['Status' => $this->input->post('Status'),'Loom_No'=>$this->input->post('Loom_No'),'Godown'=>$this->input->post('Godown'),'Loom_Size'=>$this->input->post('Loom_Size'),'Pannel_Board'=>$this->input->post('Pannel_Board'),'Cost'=>$this->input->post('Cost'),'Custodian'=>$this->input->post('Custodian'),'Year_of_Purchase'=>$this->input->post('Year_of_Purchase')];
-       $this->db->where('loom_id',$this->input->post('loom_id'))->update('loom_master',$data);
+
+    public function store(){
+        $data = $this->input->post();
+        $this->db->insert('loom_master',$data);
+        redirect('loom');
     }
+
+
+    public function edit($id){
+        $loom = $this->db->get_where('loom_master',array('loom_id'=>$id))->row();
+        $this->load->view('loom-edit',compact('loom'));
+    }
+
+
+    public function update($id){
+        $data = $this->input->post();
+        $this->db->where('loom_id',$id);
+        $this->db->update('loom_master',$data);
+        redirect('loom');
+    }
+
 
     public function delete($id){
-
+        
     }
+
+   
+
+   
+
+   
 }
 ?>

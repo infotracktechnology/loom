@@ -54,5 +54,14 @@ $route['404_override'] = '';
 $route['production']['GET'] = "ProductionController/index";
 $route['production_entry']['GET'] = "ProductionController/production_entry";
 
+$route['loom']['GET'] = 'LoomController/index';           
+$route['loom/create']['GET'] = 'LoomController/create';      
+$route['loom/store']['POST'] = 'LoomController/store';         
+$route['loom/(:num)/edit']['GET'] = 'LoomController/edit/$1'; 
+$route['loom/(:num)/update']['POST'] = 'LoomController/update/$1'; 
+$route['loom/(:num)/delete']['POST'] = 'LoomController/delete/$1';
+
+
+
 //$route['login'] = "AuthController/index";
 $route['translate_uri_dashes'] = FALSE;

@@ -114,7 +114,7 @@
 
 
 
-            <div class="dropdown-title"><?php echo  $_SESSION['name'];?></div>
+            <div class="dropdown-title"><?php echo  $this->session->name;?></div>
 
             <a href="#" class="dropdown-item has-icon"> <i class="far
 
