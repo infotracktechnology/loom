@@ -46,7 +46,7 @@
 
                <div class="col-md-3 form-group" id="count">
                  <label class="form-label" >Count</label>
-                 <input type="text" name="count"  value="" class="form-control form-control-sm " />
+                 <input type="text" name="count"  value="" class="form-control form-control-sm" />
                </div>
 
 
