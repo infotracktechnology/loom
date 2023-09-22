@@ -113,7 +113,7 @@
                 <label class="form-label">Looms </label>
                 <select class="form-control form-control-sm select2" name="loom[]" multiple required>
                <?php foreach($looms as $key => $row) { ?>
-                <option value='<?php echo $row->loom_id;?>'><?php echo $row->Loom_No;?></option>
+                <option value='<?php echo $row->loom_id;?>' <?php echo in_array($row->loom_id, $loom_ids) ? 'selected' : '';?>><?php echo $row->Loom_No;?></option>
                <?php } ?>
                 </select>
  
