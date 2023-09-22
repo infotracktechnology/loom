@@ -109,7 +109,7 @@
                 <input type="number" name="opening_stock" value="" class="form-control form-control-sm numberk"  min="0" />
                </div>
 
-               <div class="form-group col-md-3">
+               <!-- <div class="form-group col-md-3">
                 <label class="form-label">Looms </label>
                 <select class="form-control form-control-sm select2" name="loom[]" multiple required>
                 <?php foreach($looms as $key => $row) { ?>
@@ -117,7 +117,7 @@
                <?php } ?>
                 </select>
  
-                </div>
+                </div> -->
 
                </div>
                <div class="row my-4">
