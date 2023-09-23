@@ -16,7 +16,6 @@ class MaterialController extends CI_Controller {
     }
 
     public function create(){
-        $looms = $this->db->get('loom_master')->result_object();
         $this->load->view('material-create',compact('looms'));
     }
 
@@ -29,11 +28,8 @@ class MaterialController extends CI_Controller {
 
 
     public function edit($id){
-        $material = $this->db->get_where('material_master',array('material_id'=>$id))->row();
-        $loom_material = $this->db->get_where('loom_material',array('material_id'=>$id))->result();
-        $loom_ids = array_column($loom_material, 'loom_id');
         $looms = $this->db->get('loom_master')->result_object();
-        $this->load->view('material-edit',compact('material','loom_ids','looms'));
+        $this->load->view('material-edit',compact('material'));
     }
 
 

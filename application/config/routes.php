@@ -68,6 +68,13 @@ $route['material/(:num)/edit']['GET'] = 'MaterialController/edit/$1';
 $route['material/(:num)/update']['POST'] = 'MaterialController/update/$1'; 
 $route['material/(:num)/delete']['POST'] = 'MaterialController/delete/$1';
 
+$route['product']['GET'] = 'ProductController/index';           
+$route['product/create']['GET'] = 'ProductController/create';      
+$route['product/store']['POST'] = 'ProductController/store';         
+$route['product/(:num)/edit']['GET'] = 'ProductController/edit/$1'; 
+$route['product/(:num)/update']['POST'] = 'ProductController/update/$1'; 
+$route['product/(:num)/delete']['POST'] = 'ProductController/delete/$1';
+
 
 
 //$route['login'] = "AuthController/index";

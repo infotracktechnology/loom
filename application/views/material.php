@@ -47,6 +47,7 @@
         <th scope="col">Material Name</th>
         <th scope="col">Count</th>
         <th scope="col">Material Category</th>
+        <th scope="col">Material Color</th>
         <th scope="col">Measurement</th>
         <th scope="col">Opening Stock in(kg & Meter)</th>
         <th scope="col">Action</th>
@@ -62,6 +63,7 @@
         <td><?php echo $row['material_name'];?></td>
         <td><?php echo $row['count'];?></td>
         <td><?php echo $row['material_category'];?></td>
+        <td><?php echo $row['material_colour'];?></td>
         <td><?php echo $row['measurement'];?></td>
         <td><?php echo $row['opening_stock'];?></td>
         <td><a href="<?php echo base_url("material/{$row['material_id']}/edit");?>" class="btn btn-primary"><i class="fa fa-edit"></i></a>

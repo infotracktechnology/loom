@@ -3,41 +3,81 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ProductController extends CI_Controller {
  
- 	function __construct() {
+    function __construct() {
         parent::__construct();
-    }
-
-    public function index()
-    {
-        if($this->session->userdata('name') != '')
-        {
-         $this->load->view('product',array('products' => $this->db->get('product_master')->result()));
-        }
-        else
-        {
-         redirect('AuthController/logout');
+        if(!isset($this->session->name)){
+            redirect(''.base_url().'AuthController/index');
         }
     }
 
-    public function show($id)
-    {
-        $this->output->set_content_type('application/json')->set_output(json_encode($this->db->get_where('product_master',array('id' => $id))->row()));
+    public function index(){
+        $products = $this->db->get('product_master')->result_array();
+        $this->load->view('product',compact('products'));
     }
 
-    public function create()
-    {
-        $this->db->insert('product_master',$this->input->post());
-        return $this->db->insert_id();
+    public function create(){
+        $looms = $this->db->get('loom_master')->result_object();
+        $weft_yarn = $this->fetchMaterial('Weft yarn');
+        $warp_yarn = $this->fetchMaterial('Warp yarn');
+        $bobins = $this->fetchMaterial('Bobin', 'material_colour');
+        $this->load->view('product-create',compact('looms','weft_yarn','warp_yarn','bobins'));
     }
 
-    public function update()
-    {
-        $data = array('product_name' =>$this->input->post('product_name'),'warp_ends'=>$this->input->post('warp_ends'),'reed'=>$this->input->post('reed'),'pick'=>$this->input->post('pick'),'coolie'=>$this->input->post('coolie'),'warp_yarn'=>$this->input->post('warp_yarn'),'size'=>$this->input->post('size'),'bobbin_ends'=>$this->input->post('bobbin_ends'),'bobbin_color'=>$this->input->post('bobbin_color'),'color_code'=>$this->input->post('color_code'),'weft_yarn'=>$this->input->post('weft_yarn'));
-        $this->db->where('id',$this->input->post('id'))->update('product_master',$data);
+
+    public function store(){
+        $data = $this->input->post();
+        unset($data['bobbins'],$data['looms']);
+        $this->db->insert('product_master',$data);
+        $pid = $this->db->insert_id();
+        foreach($this->input->post('bobbins') as $bobbins){
+            $this->db->insert('product_bobbins',array('product_id'=>$pid,'material_id'=>$bobbins));
+        }
+        foreach($this->input->post('looms') as $loom_id){
+            $this->db->insert('loom_product',array('product_id'=>$pid,'loom_id'=>$loom_id));
+        }
+        redirect('product');
     }
+
+
+    public function edit($id){
+        $product = $this->db->get_where('product_master',array('id'=>$id))->row();
+        $looms = $this->db->get('loom_master')->result_object();
+        $weft_yarn = $this->fetchMaterial('Weft yarn');
+        $warp_yarn = $this->fetchMaterial('Warp yarn');
+        $bobins = $this->fetchMaterial('Bobin', 'material_colour');
+
+        $select_bobins = array_column($this->db->get_where('product_bobbins', array('product_id' => $id))->result_array(), 'material_id');
+
+        $select_looms = array_column($this->db->get_where('loom_product', array('product_id' => $id))->result_array(), 'loom_id');
+
+        $this->load->view('product-edit',compact('product','looms','weft_yarn','warp_yarn','bobins','select_bobins','select_looms'));
+    }
+
+
+    public function update($id){
+        $data = $this->input->post();
+        unset($data['bobbins'],$data['looms']);
+        $this->db->where('id',$id)->update('product_master',$data);
+        $this->db->delete('product_bobbins',array('product_id'=>$id));
+        $this->db->delete('loom_product',array('product_id'=>$id));
+        foreach($this->input->post('bobbins') as $bobbins){
+            $this->db->insert('product_bobbins',array('product_id'=>$id,'material_id'=>$bobbins));
+        }
+        foreach($this->input->post('looms') as $loom_id){
+            $this->db->insert('loom_product',array('product_id'=>$id,'loom_id'=>$loom_id));
+        }
+        redirect('product');
+    }
+
 
     public function delete($id){
-
+        
     }
+
+    private function fetchMaterial($materialName, $groupField = 'count') {
+      $query = $this->db->select('material_id, ' . $groupField)->from('material_master')->where('material_name', $materialName)->group_by($groupField)->get();
+        return $query->result_object();
+    }
+
 }
 ?>
