@@ -28,7 +28,7 @@ class MaterialController extends CI_Controller {
 
 
     public function edit($id){
-        $looms = $this->db->get('loom_master')->result_object();
+        $material = $this->db->where('material_id',$id)->get('material_master')->row();
         $this->load->view('material-edit',compact('material'));
     }
 

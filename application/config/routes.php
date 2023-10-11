@@ -54,6 +54,7 @@ $route['404_override'] = '';
 
 $route['production']['GET'] = "ProductionController/index";
 $route['production_entry']['GET'] = "ProductionController/production_entry";
+$route['api/loom/(:num)']['GET'] = "ProductionController/Loom/$1";
 
 $route['loom']['GET'] = 'LoomController/index';           
 $route['loom/create']['GET'] = 'LoomController/create';      

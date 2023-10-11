@@ -37,10 +37,10 @@
 
         <div class="col-md-2 form-group">
         <label>Production No</label>
-        <input type="text" class="form-control form-control-sm" name="production_no" id="production_no" readonly>
+        <input type="text" class="form-control form-control-sm" value="<?php echo 1; ?>" name="production_no" id="production_no" readonly>
         </div>
 
-        <div class="col-md-2 form-group">
+        <div class="col-md-3 form-group">
         <label>Production Date</label>
         <input type="date" class="form-control form-control-sm" name="production_date" id="production_date" value="<?php echo date('Y-m-d');?>" required>
         </div>
@@ -55,15 +55,7 @@
         <input type="time" class="form-control form-control-sm" name="end_time"   value="<?php echo date('H:i');?>">
         </div>
 
-        <div class="col-md-2 form-group">
-        <label>Loom</label>
-        <select name="loom" id="loom" class="form-control form-control-sm" required>
-        <option value="" selected disabled>Select Loom</option>
-        <option ng-repeat="loom in looms" value="{{loom.loom_id}}">{{loom.Loom_No}}</option>
-        </select>
-        </div>
-
-        <div class="col-md-2 form-group">
+        <div class="col-md-3 form-group">
         <label>Loom Weaver</label>
         <select name="loom_weaver" id="loom_weaver" class="form-control form-control-sm" required>
         <option value="" selected disabled>Select Loom Weaver</option>
@@ -71,49 +63,85 @@
         </select>
         </div>
 
-        <div class="col-md-3 form-group">
-        <label>Product</label>
-        <input type="text" class="form-control form-control-sm" name="product"  readonly>
+
+        <div class="col-md-2 form-group">
+        <label>Loom</label>
+        <select name="loom" id="loom" ng-on-change="getLoom($event)"; class="form-control form-control-sm" required>
+        <option value="" selected disabled>Select Loom</option>
+        <option ng-repeat="loom in looms" value="{{loom.loom_id}}">{{loom.Loom_No}}</option>
+        </select>
         </div>
+
+        <div class="col-md-2 form-group">
+        <label>Product</label>
+        <input type="text" class="form-control form-control-sm" name="product" ng-value="data.product_name">
+        </div>
+
+        <div class="col-md-2 form-group">
+        <label>Warp Yarn</label>
+        <input type="text" class="form-control form-control-sm" name="warp_yarn" ng-value="data.warp_yarn">
+        </div>
+     
+
+     <div class="col-md-2 form-group">
+        <label>Weft Yarn</label>
+        <input type="text" class="form-control form-control-sm" name="weft_yarn" ng-value="data.weft_yarn">
+        </div>
+    
+
+
+     <div class="col-md-2 form-group">
+        <label>Dhothi</label>
+        <input type="number" class="form-control form-control-sm" name="dhothi" ng-on-input="getDhothi($event);">
+        </div>
+    
+
+
+
+     <div class="col-md-1 form-group">
+        <label>Wastage</label>
+        <input type="text" class="form-control form-control-sm" name="wastage">
+        </div>
+    
+
+    
+
+     <div class="col-md-1 form-group">
+        <label>Size</label>
+        <input type="text" class="form-control form-control-sm" name="size"  ng-value="data.size">
+        </div>
+
+        <div class="col-md-2 form-group">
+        <label>Grms</label>
+        <input type="number" class="form-control form-control-sm" name="grm"  ng-value="data.grm">
+        </div>
+  
+
+
+     <div class="col-md-1 form-group">
+        <label>Pick</label>
+        <input type="number" class="form-control form-control-sm" name="pick"  ng-value="data.pick">
+        </div>
+
+        <div class="col-md-1 form-group">
+        <label>Coolie</label>
+        <input type="number" class="form-control form-control-sm" name="coolie"  ng-value="data.coolie">
+        </div>
+
+        <div class="col-md-2 form-group">
+        <label>Total</label>
+        <input type="number" class="form-control form-control-sm" name="total"  ng-value="data.total">
+        </div>
+     </div>
+     
         
 
-        <div class="col-md-12">
-          <h6 class="col-red"> Material Details</h6>
-          <hr  class="bg-dark"/>
-        </div>
-        </div>
-        <div class="row" ng-repeat="purchase in purchase_items">
-        <div class="col-md-2 form-group">
-          <input type="text" name="item_id[]" class="form-control form-control-sm" ng-model="purchase.item_id" numbers-only placeholder="Item" ng-c>
-        </div>
-        <div class="col-md-2 form-group">
-          <input type="text" name="qty[]" class="form-control  form-control-sm" min="1" ng-change="calculateAmount(purchase);"  ng-model="purchase.qty" placeholder="Qty">
-        </div>
-        <div class="col-md-2 form-group">
-          <input type="number" name="price[]" class="form-control form-control-sm" min="1"   ng-model="purchase.price" placeholder="Price">
-        </div>
-        <div class="col-md-1 form-group">
-          <input type="number" name="tax[]" class="form-control form-control-sm" min="1"  ng-model="purchase.tax" placeholder="Tax">
-        </div>
-        <div class="col-md-2 form-group">
-          <input type="number" name="discount[]" class="form-control form-control-sm" min="1"  ng-model="purchase.discount" placeholder="Discount (%)">
-        </div>
-        <div class="col-md-2 form-group">
-          <input type="number" name="amount[]" class="form-control form-control-sm" min="1"  ng-model="purchase.amount" placeholder="Amount" readonly>
-        </div>
-        <div class="col-md-1">
-          <button type="button" class="btn btn-danger" ng-click="removeRow($index)"><i class="fa fa-trash"></i></button>
-        </div>
-
-        </div>
 
         
 
         <div class="row">
 
-        <div class="col-md-2 form-group">
-        <button type="button" class="btn btn-primary" ng-on-click="addRow()">Add Row</button>
-        </div>
+      
   
         <div class="col-md-2 form-group">
         <button type="submit" class="btn btn-primary" >Submit</button>
@@ -154,31 +182,21 @@ app.controller('myCtrl', function($scope, $http) {
 
   $scope.looms = angular.fromJson(<?php echo json_encode($looms);?>);
   $scope.loom_weavers = angular.fromJson(<?php echo json_encode($loom_weavers);?>);
-  $scope.purchase_items = [{'item_id':'','qty':'','price':'','tax':'','discount':'','amount':''}];
-
-  $scope.addRow = function(){
-    $scope.purchase_items.push({'item_id':'','qty':'','price':'','tax':'','discount':'','amount':''});
+  $scope.data = {};
+  $scope.getLoom = function(e){
+    var loom_id = e.target.value;
+    $http.get(baseUrl+'api/loom/'+loom_id).then(function(response){
+      $scope.data = response.data;
+    })
   }
-
-
-  $scope.removeRow = function(index){
-    if(confirm('Are you sure?'))
-    { 
-    $scope.purchase_items.splice(index, 1);
-    }
+  $scope.getDhothi = function(e){
+    var dhothi = e.target.value;
+    $scope.data.warp_yarn = (dhothi * $scope.data.size).toFixed(2);
+    $scope.data.weft_yarn = ((dhothi * $scope.data.grm)/1000).toFixed(2);
+    $scope.data.total = (dhothi*$scope.data.coolie).toFixed(2);
   }
-
-  $scope.calculateAmount = function(purchase){
-    alert(purchase.qty);
-  }
-
 })
 
-app.filter('limitToNumbers', function() {
-  return function(input) {
-    return input.replace(/[^0-9]/g, '');
-  };
-});
 
 
 
