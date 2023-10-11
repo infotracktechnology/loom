@@ -29,7 +29,7 @@
   <form method="post" id="myForm" action="<?php echo base_url('product/store');?>">
   <div class="row">
   <div class=" col-md-12 form-group">
-    <h6>Edit Product</h6>
+    <h6>Add Product</h6>
   </div>
  <div class="col-md-3 form-group">
      <label>Product Name</label>
@@ -105,17 +105,7 @@
  </div>
 
 
- <div class="col-md-4 form-group">
-   <label>Bobbin Colors</label>
-   
-   <select  name="bobbins[]" multiple  class="form-control form-control-sm select2">
-    <option value="">Select</option>
-    <?php foreach($bobins as $row){?>
-    <option value="<?php echo $row->material_id;?>"><?php echo $row->material_colour;?></option>
-    <?php }?>
-   </select>
-
- </div>
+ 
 
 
  <div class="col-md-4 form-group">

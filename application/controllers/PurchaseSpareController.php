@@ -9,11 +9,8 @@ class PurchaseSpareController extends CI_Controller {
  
 
  	function __construct() {
-
         parent::__construct();
         $name = $this->session->userdata('name');
-
-
 
     }
 
@@ -43,7 +40,6 @@ public function index()
 
 
     public function show($id)
-
     {
 
         # code...

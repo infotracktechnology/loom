@@ -10,6 +10,7 @@ class AuthController extends CI_Controller {
 
 	public function index()
 	{
+        log_message('debug', 'This is a debug message');
 		$this->load->view('admin_login');
 	}
 
@@ -27,6 +28,7 @@ public function dashboard()
   $password = md5($this->input->post('password'));
   if (count($user) > 0 && $user['password'] == $password) {
      $this->session->set_userdata($user);
+     log_message('debug', 'This is a debug message');
      redirect(''.base_url().'AuthController/main_dashboard');
   } else {
      $this->session->set_flashdata('msg',"Invalid Username and Password!");

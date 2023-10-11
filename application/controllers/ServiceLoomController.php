@@ -31,10 +31,6 @@ class ServiceLoomController extends CI_Controller {
     {
 
      
-        
-
-
-        
     }
 
     public function update()

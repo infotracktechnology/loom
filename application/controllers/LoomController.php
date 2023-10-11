@@ -5,6 +5,7 @@ class LoomController extends CI_Controller {
  
  	function __construct() {
         parent::__construct();
+        $this->load->model('material');
         if(!isset($this->session->name)){
             redirect(''.base_url().'AuthController/index');
         }
@@ -16,8 +17,8 @@ class LoomController extends CI_Controller {
     }
 
     public function create(){
-        $products = $this->db->get('product_master')->result_object();
-        $this->load->view('loom-create',compact('products'));
+       $bobbins = $this->material->fetchMaterial('Bobin','material_colour');
+       print_r($bobbins);
     }
 
 
