@@ -63,7 +63,7 @@
         <td><?php echo $row['reed'];?></td>
         <td><?php echo $row['pick'];?></td>
         <td><?php echo $row['coolie'];?></td>
-        <td><a href="<?php echo base_url("product/{$row['id']}/edit");?>" class="btn btn-primary text-white">Edit</a>
+        <td><a href="<?php echo base_url("product/{$row['id']}/edit");?>" class="btn btn-primary text-white"><i class="fa fa-edit"></i></a>
         </td>
       </tr>
       <?php } ?>

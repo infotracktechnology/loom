@@ -885,6 +885,11 @@ class CI_Session {
 		return $this->userdata();
 	}
 
+
+	public function toJson(){
+		return json_encode($this->userdata());
+	}
+
 	// ------------------------------------------------------------------------
 
 	/**

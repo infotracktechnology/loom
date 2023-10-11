@@ -30,7 +30,7 @@ class ProductController extends CI_Controller {
         unset($data['bobbins'],$data['looms']);
         $this->db->insert('product_master',$data);
         $pid = $this->db->insert_id();
-       
+    
         foreach($this->input->post('looms') as $loom_id){
             $this->db->insert('loom_product',array('product_id'=>$pid,'loom_id'=>$loom_id));
         }

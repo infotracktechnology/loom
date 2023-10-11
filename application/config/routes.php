@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'AuthController/index';
 $route['404_override'] = '';
+
 $route['production']['GET'] = "ProductionController/index";
 $route['production_entry']['GET'] = "ProductionController/production_entry";
 

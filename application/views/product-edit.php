@@ -105,18 +105,7 @@
  </div>
 
 
- <div class="col-md-4 form-group">
-   <label>Bobbin Colors</label>
-   
-   <select  name="bobbins[]" multiple  class="form-control form-control-sm select2">
-    <option value="">Select</option>
-    <?php foreach($bobins as $row){?>
-    <option value="<?php echo $row->material_id;?>" <?php echo in_array($row->material_id, $select_bobins) ? 'selected' : '';?>><?php echo $row->material_colour;?></option>
-    <?php }?>
-   </select>
-
- </div>
-
+ 
 
  <div class="col-md-4 form-group">
    <label>Looms</label>

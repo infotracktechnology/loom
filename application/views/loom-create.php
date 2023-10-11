@@ -12,6 +12,7 @@
   <link rel='shortcut icon' type='image/x-icon' href='<?php echo base_url();?>assets/img/favicon.ico' />
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bundles/datatables/datatables.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/bundles/select2/dist/css/select2.min.css">
 </head>
 
 <body>
@@ -139,6 +140,7 @@
 <script src="<?php echo base_url();?>assets/bundles/sweetalert/sweetalert.min.js"></script>
 <script src="<?php echo base_url();?>assets/bundles/datatables/datatables.min.js"></script>
 <script src="<?php echo base_url();?>assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?php echo base_url();?>assets/bundles/select2/dist/js/select2.full.min.js"></script>
 
 <script type="text/javascript">
 

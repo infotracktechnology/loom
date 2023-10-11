@@ -11,6 +11,7 @@
   <link rel='shortcut icon' type='image/x-icon' href='<?php echo base_url();?>assets/img/favicon.ico' />
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bundles/datatables/datatables.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/bundles/select2/dist/css/select2.min.css">
 </head>
 
 <body>
@@ -93,15 +94,18 @@
 
 </div>
 
-<div class="col-md-3 form-group">
-<label class="form-label">Product</label>
-<select name="product" id="product" class="form-control form-control-sm" required>
-<option value="">Select Product</option>
-<?php foreach($products as $key => $row) { ?>
-<option value="<?php echo $row->id;?>" <?php echo $loom->product == $row->id ? 'selected' : '';?>><?php echo $row->product_name;?></option>
-<?php } ?>
-</select>
-</div>
+
+<div class="col-md-4 form-group">
+   <label>Bobbin Colors</label>
+   
+   <select  name="bobbins[]" multiple  class="form-control form-control-sm select2">
+    <option value="">Select</option>
+    <?php foreach($bobbins as $row){?>
+    <option value="<?php echo $row->material_id;?>" <?php echo in_array($row->material_id, $select_bobbins) ? 'selected' : '';?>><?php echo $row->material_colour;?></option>
+    <?php }?>
+   </select>
+
+ </div>
 
 
 <div class="col-md-3 form-group">
@@ -137,6 +141,7 @@
 <script src="<?php echo base_url();?>assets/bundles/sweetalert/sweetalert.min.js"></script>
 <script src="<?php echo base_url();?>assets/bundles/datatables/datatables.min.js"></script>
 <script src="<?php echo base_url();?>assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?php echo base_url();?>assets/bundles/select2/dist/js/select2.full.min.js"></script>
 
 <script type="text/javascript">
 
