@@ -5,7 +5,7 @@ class LoomController extends CI_Controller {
  
  	function __construct() {
         parent::__construct();
-        $this->load->model('material');
+        $this->load->model('Material');
         if(!isset($this->session->name)){
             redirect(''.base_url().'AuthController/index');
         }
@@ -17,7 +17,7 @@ class LoomController extends CI_Controller {
     }
 
     public function create(){
-       $bobins = $this->material->fetchMaterial('Bobin','material_colour');
+       $bobins = $this->Material->fetchMaterial('Bobin','material_colour');
        $this->load->view('loom-create',compact('bobins'));
     }
 
@@ -37,7 +37,7 @@ class LoomController extends CI_Controller {
 
     public function edit($id){
         $loom = $this->db->get_where('loom_master',array('loom_id'=>$id))->row();
-        $bobbins = $this->material->fetchMaterial('Bobin','material_colour');
+        $bobbins = $this->Material->fetchMaterial('Bobin','material_colour');
         $select_bobbins = array_column($this->db->get_where('loom_bobbins', array('loom_id' => $id))->result_array(), 'material_id');
     
         $this->load->view('loom-edit',compact('loom','bobbins','select_bobbins'));

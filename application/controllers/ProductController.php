@@ -5,7 +5,7 @@ class ProductController extends CI_Controller {
  
     function __construct() {
         parent::__construct();
-        $this->load->model('material');
+        $this->load->model('Material');
         if(!isset($this->session->name)){
             redirect(''.base_url().'AuthController/index');
         }
@@ -18,8 +18,8 @@ class ProductController extends CI_Controller {
 
     public function create(){
         $looms = $this->db->get('loom_master')->result_object();
-        $weft_yarn = $this->material->fetchMaterial('Weft yarn');
-        $warp_yarn = $this->material->fetchMaterial('Warp yarn');
+        $weft_yarn = $this->Material->fetchMaterial('Weft yarn');
+        $warp_yarn = $this->Material->fetchMaterial('Warp yarn');
 
         $this->load->view('product-create',compact('looms','weft_yarn','warp_yarn'));
     }
@@ -41,9 +41,9 @@ class ProductController extends CI_Controller {
     public function edit($id){
         $product = $this->db->get_where('product_master',array('id'=>$id))->row();
         $looms = $this->db->get('loom_master')->result_object();
-        $weft_yarn = $this->material->fetchMaterial('Weft yarn');
-        $warp_yarn = $this->material->fetchMaterial('Warp yarn');
-        $bobins = $this->material->fetchMaterial('Bobin', 'material_colour');
+        $weft_yarn = $this->Material->fetchMaterial('Weft yarn');
+        $warp_yarn = $this->Material->fetchMaterial('Warp yarn');
+        $bobins = $this->Material->fetchMaterial('Bobin', 'material_colour');
 
         $select_looms = array_column($this->db->get_where('loom_product', array('product_id' => $id))->result_array(), 'loom_id');
 
