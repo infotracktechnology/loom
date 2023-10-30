@@ -6,5 +6,5 @@ class Material extends CI_Model
           return $query->result_object();
       }
 }
-?>
+
 
