@@ -5,7 +5,7 @@ class LoomController extends CI_Controller {
  
  	function __construct() {
         parent::__construct();
-        $this->load->model('Material');
+        $this->load->library('Material');
         if(!isset($this->session->name)){
             redirect(''.base_url().'AuthController/index');
         }
