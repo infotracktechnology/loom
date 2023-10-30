@@ -192,7 +192,7 @@ app.controller('myCtrl', function($scope, $http) {
   $scope.getDhothi = function(e){
     var dhothi = e.target.value;
     $scope.data.warp_yarn = (dhothi * $scope.data.size).toFixed(2);
-    $scope.data.weft_yarn = ((dhothi * $scope.data.grm)/1000).toFixed(2);
+    $scope.data.weft_yarn = ((1000 * $scope.data.grm)/(dhothi*$scope.data.size)).toFixed(2);
     $scope.data.total = (dhothi*$scope.data.coolie).toFixed(2);
   }
 })
