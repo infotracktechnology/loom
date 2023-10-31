@@ -139,7 +139,7 @@
       element = $('#' + id, context)[0];
     } else {
       element = document.getElementById(id);
-    };
+    }
 
     return element;
   };

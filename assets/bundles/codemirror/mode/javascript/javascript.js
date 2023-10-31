@@ -324,7 +324,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
       if (type == wanted) return cont();
       else if (wanted == ";") return pass();
       else return cont(exp);
-    };
+    }
     return exp;
   }
 
