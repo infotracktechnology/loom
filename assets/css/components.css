@@ -1,5 +1,4 @@
 .article {
-    box-shadow: 0 4px 25px 0 rgba(0,0,0,0.1);
     background-color: #fff;
     border-radius: 10px;
     border: none;
@@ -756,7 +755,7 @@ div.dataTables_wrapper div.dataTables_processing {
     border-radius: 5px !important;
     border: 0 !important;
     width: 60px;
-    margin: 0px 5px 0px 5px
+    margin: 0px 5px
 }
 
 .buttons-excel {
@@ -765,7 +764,7 @@ div.dataTables_wrapper div.dataTables_processing {
     border-radius: 5px !important;
     border: 0 !important;
     width: 60px;
-    margin: 0px 5px 0px 5px
+    margin: 0px 5px
 }
 
 .buttons-csv {
@@ -774,7 +773,7 @@ div.dataTables_wrapper div.dataTables_processing {
     border-radius: 5px !important;
     border: 0 !important;
     width: 60px;
-    margin: 0px 5px 0px 5px
+    margin: 0px 5px
 }
 
 .buttons-pdf {
@@ -783,7 +782,7 @@ div.dataTables_wrapper div.dataTables_processing {
     border-radius: 5px !important;
     border: 0 !important;
     width: 60px;
-    margin: 0px 5px 0px 5px
+    margin: 0px 5px
 }
 
 .buttons-print {
@@ -792,7 +791,7 @@ div.dataTables_wrapper div.dataTables_processing {
     border-radius: 5px !important;
     border: 0 !important;
     width: 60px;
-    margin: 0px 5px 0px 5px
+    margin: 0px 5px
 }
 
 .daterangepicker.dropdown-menu {
@@ -1704,7 +1703,7 @@ tr:first-child>td>.fc-day-grid-event {
 }
 
 .weather .weather-desc ul {
-    margin: 15px 0 13px 0;
+    margin: 15px 0 13px;
     padding: 0
 }
 
@@ -2064,7 +2063,6 @@ tr:first-child>td>.fc-day-grid-event {
         width: 100%;
         display: flex;
         flex-wrap: nowrap;
-        padding: 0;
         margin-bottom: 15px;
         padding: 15px;
         overflow: auto
@@ -2122,10 +2120,8 @@ tr:first-child>td>.fc-day-grid-event {
 .activities .activity .activity-icon {
     width: 50px;
     height: 50px;
-    border-radius: 3px;
     line-height: 50px;
     font-size: 20px;
-    text-align: center;
     margin-right: 20px;
     border-radius: 50%;
     flex-shrink: 0;
@@ -2137,7 +2133,6 @@ tr:first-child>td>.fc-day-grid-event {
     background-color: #fff;
     border-radius: 10px;
     border: none;
-    position: relative;
     margin-bottom: 30px;
     box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1),0 0.9375rem 1.40625rem rgba(90,97,105,0.1),0 0.25rem 0.53125rem rgba(90,97,105,0.12),0 0.125rem 0.1875rem rgba(90,97,105,0.1);
     position: relative;
@@ -2449,14 +2444,11 @@ tr:first-child>td>.fc-day-grid-event {
 }
 
 .avatar .avatar-presence {
-    background: #fff;
     bottom: 14.64%;
-    height: 50%;
     padding: 0.1rem;
     position: absolute;
     right: 14.64%;
     transform: translate(50%, 50%);
-    width: 50%;
     z-index: 2;
     background: #bcc3ce;
     border-radius: 50%;
@@ -2643,7 +2635,7 @@ tr:first-child>td>.fc-day-grid-event {
 
 .wizard.vertical>.content {
     float: left;
-    margin: 0 0 0.5em 0;
+    margin: 0 0 0.5em;
     width: 70%;
     clear: none
 }
@@ -2674,7 +2666,7 @@ tr:first-child>td>.fc-day-grid-event {
     display: block;
     width: auto;
     margin: 0 0.5em 0.5em;
-    padding: 1em 1em;
+    padding: 1em;
     text-decoration: none;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -2685,7 +2677,7 @@ tr:first-child>td>.fc-day-grid-event {
     display: block;
     width: auto;
     margin: 0 0.5em 0.5em;
-    padding: 1em 1em;
+    padding: 1em;
     text-decoration: none;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -2798,7 +2790,7 @@ tr:first-child>td>.fc-day-grid-event {
 
 .tabcontrol>.steps>ul {
     position: relative;
-    margin: 6px 0 0 0;
+    margin: 6px 0 0;
     top: 1px;
     z-index: 1
 }
@@ -2825,12 +2817,12 @@ tr:first-child>td>.fc-day-grid-event {
     background: #fff;
     border: 1px solid #bbb;
     border-bottom: 0 none;
-    padding: 0 0 1px 0;
+    padding: 0 0 1px;
     margin-top: 0
 }
 
 .tabcontrol>.steps>ul>li.current>a {
-    padding: 15px 30px 10px 30px
+    padding: 15px 30px 10px
 }
 
 .tabcontrol>.steps>ul>li>a {
@@ -3111,7 +3103,7 @@ tr:first-child>td>.fc-day-grid-event {
 
 .max-texts a {
     color: #212529;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 0px;
     text-decoration: none
 }
 
@@ -3589,7 +3581,7 @@ tr:first-child>td>.fc-day-grid-event {
 }
 
 .to-do-list li {
-    padding: 15px 0px 5px 0px;
+    padding: 15px 0px 5px;
     border-radius: 3px;
     position: relative;
     cursor: move;
