@@ -72,6 +72,21 @@
 </div>
 </div>
 
+<div class="card card-primary">
+                  <div class="card-header">
+                    <h4>Job Status</h4>
+                    <div class="card-header-action">
+                      <a data-collapse="#mycard-collapse" class="btn text-white btn-info" href="#"><i
+                          class="fas fa-minus"></i></a>
+                    </div>
+                  </div>
+                  <div class="collapse" id="mycard-collapse">
+                    <div class="card-body">
+                     
+                    </div>
+</div>
+</div>
+
 </div>
 </form> 
 </section>
