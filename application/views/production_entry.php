@@ -65,8 +65,8 @@
                           class="fas fa-plus"></i></a>
                     </div>
                   </div>
-                  <div class="collapse card-body" id="loom_details">
-                    <div class="row">
+                  <div class="collapse" id="loom_details">
+                    <div class="card-body">
                      
                     </div>
 </div>
@@ -80,8 +80,8 @@
                           class="fas fa-plus"></i></a>
                     </div>
                   </div>
-                  <div class="collapse card-body" id="job_status">
-                    <div class="row">
+                  <div class="collapse" id="job_status">
+                    <div class="card-body">
                      
                     </div>
 </div>
