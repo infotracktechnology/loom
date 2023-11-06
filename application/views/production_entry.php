@@ -61,11 +61,11 @@
                   <div class="card-header">
                     <h4>Loom Details</h4>
                     <div class="card-header-action">
-                      <a data-collapse="#mycard-collapse" class="btn text-white btn-info" href="#"><i
-                          class="fas fa-minus"></i></a>
+                      <a data-collapse="#loom_details" class="btn text-white btn-info" href="#"><i
+                          class="fas fa-plus"></i></a>
                     </div>
                   </div>
-                  <div class="collapse" id="mycard-collapse">
+                  <div class="collapse" id="loom_details">
                     <div class="card-body">
                      
                     </div>
@@ -76,11 +76,11 @@
                   <div class="card-header">
                     <h4>Job Status</h4>
                     <div class="card-header-action">
-                      <a data-collapse="#mycard-collapse" class="btn text-white btn-info" href="#"><i
-                          class="fas fa-minus"></i></a>
+                      <a data-collapse="#job_status" class="btn text-white btn-info" href="#"><i
+                          class="fas fa-plus"></i></a>
                     </div>
                   </div>
-                  <div class="collapse" id="mycard-collapse">
+                  <div class="collapse" id="job_status">
                     <div class="card-body">
                      
                     </div>
