@@ -53,7 +53,7 @@ $route['default_controller'] = 'AuthController/index';
 $route['404_override'] = '';
 
 $route['production']['GET'] = "ProductionController/index";
-$route['production_entry']['GET'] = "ProductionController/production_entry";
+$route['production_entry/(:num)']['GET'] = "ProductionController/production_entry/$1";
 $route['api/loom/(:num)']['GET'] = "ProductionController/Loom/$1";
 
 $route['loom']['GET'] = 'LoomController/index';           

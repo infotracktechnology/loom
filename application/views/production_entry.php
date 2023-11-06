@@ -32,30 +32,21 @@
    
     </div>
   <div class="card-body">
-     <form method="post" id="myForm"  action="">
+     <form method="post" name="myForm"  action="" enctype="multipart/form-data">
      <div class="row">
 
         <div class="col-md-2 form-group">
         <label>Production No</label>
-        <input type="text" class="form-control form-control-sm" value="<?php echo 1; ?>" name="production_no" id="production_no" readonly>
+        <input type="text" class="form-control form-control-sm" value="<?php echo 1; ?>" name="production_no" readonly>
         </div>
 
-        <div class="col-md-3 form-group">
+        <div class="col-md-4 form-group">
         <label>Production Date</label>
-        <input type="date" class="form-control form-control-sm" name="production_date" id="production_date" value="<?php echo date('Y-m-d');?>" required>
+        <input type="date" class="form-control form-control-sm" name="production_date"  value="<?php echo date('Y-m-d');?>" max="<?php echo date('Y-m-d'); ?>" required>
         </div>
 
-        <div class="col-md-2 form-group">
-        <label>Start Time</label>
-        <input type="time" class="form-control form-control-sm" name="start_time"   value="<?php echo date('H:i');?>">
-        </div>
 
-        <div class="col-md-2 form-group">
-        <label>End Time</label>
-        <input type="time" class="form-control form-control-sm" name="end_time"   value="<?php echo date('H:i');?>">
-        </div>
-
-        <div class="col-md-3 form-group">
+        <div class="col-md-4 form-group">
         <label>Loom Weaver</label>
         <select name="loom_weaver" id="loom_weaver" class="form-control form-control-sm" required>
         <option value="" selected disabled>Select Loom Weaver</option>
@@ -92,7 +83,7 @@
 
      <div class="col-md-2 form-group">
         <label>Dhothi</label>
-        <input type="number" class="form-control form-control-sm" name="dhothi" ng-on-input="getDhothi($event);">
+        <input type="number" class="form-control form-control-sm"  name="dhothi" ng-on-input="getDhothi($event);">
         </div>
     
 
@@ -111,10 +102,7 @@
         <input type="text" class="form-control form-control-sm" name="size"  ng-value="data.size">
         </div>
 
-        <div class="col-md-2 form-group">
-        <label>Grms</label>
-        <input type="number" class="form-control form-control-sm" name="grm"  ng-value="data.grm">
-        </div>
+      
   
 
 

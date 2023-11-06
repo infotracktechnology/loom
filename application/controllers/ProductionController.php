@@ -13,11 +13,13 @@ class ProductionController extends CI_Controller {
     public function index(){
         $this->load->view('production');
     }
-    public function production_entry(){
+    public function production_entry($id){
+        if($id == 0){
+        }
+
         $looms = $this->db->get('loom_master')->result();
         $loom_weavers = $this->db->get('technicion_master')->result();
-        $material = $this->db->get('material_master')->result();
-        $this->load->view('production_entry',compact('looms','loom_weavers','material'));
+        $this->load->view('production_entry',compact('looms','loom_weavers'));
     }
 
     public function loom($id){
