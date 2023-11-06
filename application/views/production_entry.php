@@ -22,14 +22,14 @@
     <?php include_once 'sidebar.php';?>
       <div class="main-content">
  <section class="section">
- <form method="post" name="myForm"  action="" enctype="multipart/form-data">
+
   <div class="section-body">
      <div class="card card-primary">
      <div class="card-header">
       <h4>Production Entry</h4>
      </div>
   <div class="card-body">
-     
+  <form method="post" name="myForm"  action="" enctype="multipart/form-data">
      <div class="row">
 
         <div class="col-md-2 form-group">
@@ -52,7 +52,7 @@
         </div>
  
      </div>
-    
+     </form> 
    
 </div>
 </div>
@@ -88,7 +88,7 @@
 </div>
 
 </div>
-</form> 
+
 </section>
 </div>
 </div>
