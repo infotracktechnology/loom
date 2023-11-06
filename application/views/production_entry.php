@@ -25,11 +25,13 @@
  <form method="post" name="myForm"  action="" enctype="multipart/form-data">
   <div class="section-body">
      <div class="card card-primary">
+     <div class="card-header">
+      <h4>Production Entry</h4>
+     </div>
   <div class="card-body">
      
      <div class="row">
-      <h4 class="col-md-12">Production Entry</h4>
-
+      
         <div class="col-md-2 form-group">
         <label>Production No</label>
         <input type="text" class="form-control form-control-sm" value="<?php echo 1; ?>" name="production_no" readonly>
