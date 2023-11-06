@@ -59,7 +59,7 @@
                   <div class="card-header">
                     <h4>Loom Details</h4>
                     <div class="card-header-action">
-                      <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i
+                      <a data-collapse="#mycard-collapse" class="btn text-white btn-info" href="#"><i
                           class="fas fa-minus"></i></a>
                     </div>
                   </div>
