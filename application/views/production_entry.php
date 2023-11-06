@@ -22,37 +22,37 @@
     <?php include_once 'sidebar.php';?>
       <div class="main-content">
  <section class="section">
-
+ <form method="post" name="myForm"  action="" enctype="multipart/form-data">
   <div class="section-body">
      <div class="card card-primary">
      <div class="card-header">
       <h4>Production Entry</h4>
      </div>
   <div class="card-body">
-  <form method="post" name="myForm"  action="" enctype="multipart/form-data">
+ 
      <div class="row">
 
         <div class="col-md-2 form-group">
         <label>Production No</label>
-        <input type="text" class="form-control form-control-sm" value="<?php echo 1; ?>" name="production_no" readonly>
+        <input type="text" class="form-control form-control-sm" value="<?php echo 1; ?>" ng-model="production_no" readonly>
         </div>
 
         <div class="col-md-4 form-group">
         <label>Production Date</label>
-        <input type="date" class="form-control form-control-sm" name="production_date"  value="<?php echo date('Y-m-d');?>" max="<?php echo date('Y-m-d'); ?>" required>
+        <input type="date" class="form-control form-control-sm" ng-model="production_date"  value="<?php echo date('Y-m-d');?>" max="<?php echo date('Y-m-d'); ?>" required>
         </div>
 
 
         <div class="col-md-4 form-group">
         <label>Loom Weaver</label>
-        <select name="loom_weaver" id="loom_weaver" class="form-control form-control-sm" required>
+        <select name="loom_weaver" ng-model="loom_weaver" class="form-control form-control-sm" required>
         <option value="" selected disabled>Select Loom Weaver</option>
         <option ng-repeat="loom_weaver in loom_weavers" value="{{loom_weaver.id}}">{{loom_weaver.Name}}</option>
         </select>
         </div>
  
      </div>
-     </form> 
+  
    
 </div>
 </div>
@@ -67,7 +67,15 @@
                   </div>
                   <div class="collapse" id="loom_details">
                     <div class="card-body">
-                     
+                    <div class="row">
+                    <div class="col-md-3 form-group">
+        <label>Loom</label>
+        <select name="loom" id="loom" ng-on-change="getLoom($event);" class="form-control form-control-sm" required>
+        <option value="" selected disabled>Select Loom</option>
+        <option ng-repeat="loom in looms" value="{{loom.loom_id}}">{{loom.Loom_No}}</option>
+        </select>
+        </div>
+                    </div>
                     </div>
 </div>
 </div>
@@ -88,7 +96,7 @@
 </div>
 
 </div>
-
+ </form>
 </section>
 </div>
 </div>
