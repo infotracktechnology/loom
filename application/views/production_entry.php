@@ -31,7 +31,7 @@
   <div class="card-body">
      
      <div class="row">
-      
+
         <div class="col-md-2 form-group">
         <label>Production No</label>
         <input type="text" class="form-control form-control-sm" value="<?php echo 1; ?>" name="production_no" readonly>
@@ -57,7 +57,7 @@
 </div>
 </div>
 
-<div class="card">
+<div class="card card-primary">
                   <div class="card-header">
                     <h4>Loom Details</h4>
                     <div class="card-header-action">
@@ -65,7 +65,7 @@
                           class="fas fa-minus"></i></a>
                     </div>
                   </div>
-                  <div class="collapse show" id="mycard-collapse">
+                  <div class="collapse" id="mycard-collapse">
                     <div class="card-body">
                      
                     </div>
