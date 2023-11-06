@@ -22,18 +22,13 @@
     <?php include_once 'sidebar.php';?>
       <div class="main-content">
  <section class="section">
+ <form method="post" name="myForm"  action="" enctype="multipart/form-data">
   <div class="section-body">
      <div class="card card-primary">
-    <div class="card-header row">
-
-         <div class="col-10">
-            <h4> Production Entry</h4>
-         </div>
-   
-    </div>
   <div class="card-body">
-     <form method="post" name="myForm"  action="" enctype="multipart/form-data">
+     
      <div class="row">
+      <h4 class="col-md-12">Production Entry</h4>
 
         <div class="col-md-2 form-group">
         <label>Production No</label>
@@ -53,95 +48,15 @@
         <option ng-repeat="loom_weaver in loom_weavers" value="{{loom_weaver.id}}">{{loom_weaver.Name}}</option>
         </select>
         </div>
-
-
-        <div class="col-md-2 form-group">
-        <label>Loom</label>
-        <select name="loom" id="loom" ng-on-change="getLoom($event)"; class="form-control form-control-sm" required>
-        <option value="" selected disabled>Select Loom</option>
-        <option ng-repeat="loom in looms" value="{{loom.loom_id}}">{{loom.Loom_No}}</option>
-        </select>
-        </div>
-
-        <div class="col-md-2 form-group">
-        <label>Product</label>
-        <input type="text" class="form-control form-control-sm" name="product" ng-value="data.product_name">
-        </div>
-
-        <div class="col-md-2 form-group">
-        <label>Warp Yarn</label>
-        <input type="text" class="form-control form-control-sm" name="warp_yarn" ng-value="data.warp_yarn">
-        </div>
-     
-
-     <div class="col-md-2 form-group">
-        <label>Weft Yarn</label>
-        <input type="text" class="form-control form-control-sm" name="weft_yarn" ng-value="data.weft_yarn">
-        </div>
-    
-
-
-     <div class="col-md-2 form-group">
-        <label>Dhothi</label>
-        <input type="number" class="form-control form-control-sm"  name="dhothi" ng-on-input="getDhothi($event);">
-        </div>
-    
-
-
-
-     <div class="col-md-1 form-group">
-        <label>Wastage</label>
-        <input type="text" class="form-control form-control-sm" name="wastage">
-        </div>
-    
-
-    
-
-     <div class="col-md-1 form-group">
-        <label>Size</label>
-        <input type="text" class="form-control form-control-sm" name="size"  ng-value="data.size">
-        </div>
-
-      
-  
-
-
-     <div class="col-md-1 form-group">
-        <label>Pick</label>
-        <input type="number" class="form-control form-control-sm" name="pick"  ng-value="data.pick">
-        </div>
-
-        <div class="col-md-1 form-group">
-        <label>Coolie</label>
-        <input type="number" class="form-control form-control-sm" name="coolie"  ng-value="data.coolie">
-        </div>
-
-        <div class="col-md-2 form-group">
-        <label>Total</label>
-        <input type="number" class="form-control form-control-sm" name="total"  ng-value="data.total">
-        </div>
+ 
      </div>
-     
-        
-
-
-        
-
-        <div class="row">
-
-      
-  
-        <!-- <div class="col-md-2 form-group">
-        <button type="submit" class="btn btn-primary" >Submit</button>
-        </div> -->
-        </div>
-     
-
-     </form> 
+    
+   
 </div>
 </div>
 
 </div>
+</form> 
 </section>
 </div>
 </div>
@@ -162,7 +77,7 @@
 <script src="<?php echo base_url();?>assets/bundles/datatables/datatables.min.js"></script>
 <script src="<?php echo base_url();?>assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
-<script>
+<script type="text/javascript">
   
 const app = angular.module('myApp', []);
 const baseUrl = '<?php echo base_url();?>';
@@ -170,19 +85,21 @@ app.controller('myCtrl', function($scope, $http) {
 
   $scope.looms = angular.fromJson(<?php echo json_encode($looms);?>);
   $scope.loom_weavers = angular.fromJson(<?php echo json_encode($loom_weavers);?>);
-  $scope.data = {};
+  $scope.data = [];
   $scope.getLoom = function(e){
     var loom_id = e.target.value;
     $http.get(baseUrl+'api/loom/'+loom_id).then(function(response){
       $scope.data = response.data;
     })
   }
+
   $scope.getDhothi = function(e){
     var dhothi = e.target.value;
     $scope.data.warp_yarn = (dhothi * $scope.data.size).toFixed(2);
     $scope.data.weft_yarn = ((1000 / $scope.data.grm)*($scope.data.size)).toFixed(2);
     $scope.data.total = (dhothi*$scope.data.coolie).toFixed(2);
   }
+
 })
 
 
