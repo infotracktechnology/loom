@@ -333,6 +333,7 @@ app.controller('myCtrl', function($scope, $http, $filter) {
     data.append('pid',$scope.production.id);
     data.append('Loom_No',$scope.data.Loom_No);
     data.append('date',$filter('date')($scope.production.date,'yyyy-MM-dd'));
+    data.append('operator',$scope.production.operator);
     $http.post(baseUrl+'production_status',data,{headers: {'Content-Type': undefined}}).then(function(response){
       $(e.target).trigger('reset');
       $scope.status.push(response.data);
