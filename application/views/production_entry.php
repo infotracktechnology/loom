@@ -83,57 +83,57 @@
 
         <div class="col-md-2 form-group">
         <label> Start Time</label>
-  <input type="time"  class="form-control form-control-sm" required>
+  <input type="time" name="start_time" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-2 form-group">
   <label> End Time</label>
-  <input type="time"  class="form-control form-control-sm" required>
+  <input type="time" name="end_time"  class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Product</label>
-  <input type="text"  class="form-control form-control-sm" required>
+  <input type="text" name="product" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Warp Yarn</label>
-  <input type="text"  class="form-control form-control-sm" required>
+  <input type="text" name="warp_yarn" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Weft Yarn</label>
-  <input type="text"  class="form-control form-control-sm" required>
+  <input type="text" name="weft_yarn" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Dhothi</label>
-  <input type="text"  class="form-control form-control-sm" required>
+  <input type="text" name="dhothi" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Wastage</label>
-  <input type="text"  class="form-control form-control-sm" required>
+  <input type="text" name="wastage" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Size</label>
-  <input type="text"  class="form-control form-control-sm" required>
+  <input type="text" name="size" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Pick</label>
-  <input type="text"  class="form-control form-control-sm" required>
+  <input type="text" name="pick" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Coolie</label>
-  <input type="text"  class="form-control form-control-sm" required>
+  <input type="text" name="coolie" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Total</label>
-  <input type="text"  class="form-control form-control-sm" required>
+  <input type="text" name="total" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-6 form-group">
