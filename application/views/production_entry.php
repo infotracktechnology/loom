@@ -138,7 +138,7 @@
 
 <div class="col-md-6 form-group">
  <button class="btn btn-primary">Update</button>
-</div><br>
+</div>
 
 <div class="col-12">
   <h6>History</h6>
@@ -180,34 +180,34 @@
                     <div class="row">
                     <div class="col-md-6 form-group">
         <label>Job Status</label>
-        <select name="loom" id="loom" ng-on-change="getLoom($event);" class="form-control form-control-sm" required>
+        <select name="status" class="form-control form-control-sm" required>
         <option value="" selected disabled>Select Status</option>
-        <option value="">Lunch</option>
-        <option value="">Completed</option>
-        <option value="">Help To Others</option>
-        <option value="">On Hold</option>
-        <option value="">Breakdown</option>
-        <option value="">Idel</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Completed">Completed</option>
+        <option value="Help To Others">Help To Others</option>
+        <option value="On Hold">On Hold</option>
+        <option value="Breakdown">Breakdown</option>
+        <option value="Idel">Idel</option>
         </select>
         </div>
 
         <div class="col-md-6 form-group">
   <label> Start Time</label>
-  <input type="time"  class="form-control form-control-sm" required>
+  <input type="time" name="start_time" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-6 form-group">
   <label> End Time</label>
-  <input type="time"  class="form-control form-control-sm" required>
+  <input type="time" name="end_time" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-6 form-group">
   <label> Comments</label>
-  <input type="text"  class="form-control form-control-sm" required>
+  <input type="text" name="comments"  class="form-control form-control-sm" required>
 </div>
 <div class="col-md-6 form-group">
  <button class="btn btn-primary">Update</button>
-</div><br>
+</div>
 
 
 <div class="col-12">
