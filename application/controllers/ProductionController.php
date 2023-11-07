@@ -15,6 +15,7 @@ class ProductionController extends CI_Controller {
     }
     public function production_entry($id){
         if($id == 0){
+            
         }
 
         $looms = $this->db->get('loom_master')->result();

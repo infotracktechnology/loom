@@ -68,7 +68,7 @@
                   <div class="collapse" id="loom_details">
                     <div class="card-body">
                     <div class="row">
-                    <div class="col-md-3 form-group">
+                    <div class="col-md-2 form-group">
         <label>Loom</label>
         <select name="loom" id="loom" ng-on-change="getLoom($event);" class="form-control form-control-sm" required>
         <option value="" selected disabled>Select Loom</option>
@@ -125,7 +125,9 @@ app.controller('myCtrl', function($scope, $http) {
 
   $scope.looms = angular.fromJson(<?php echo json_encode($looms);?>);
   $scope.loom_weavers = angular.fromJson(<?php echo json_encode($loom_weavers);?>);
-  $scope.data = [];
+  $scope.data = {};
+  const form_data = new FormData($('#myForm')[0]);
+  
   $scope.getLoom = function(e){
     var loom_id = e.target.value;
     $http.get(baseUrl+'api/loom/'+loom_id).then(function(response){
