@@ -30,7 +30,7 @@
          </div>
         
          <div class="col-2 float-right">
-               <a  href="<?php echo base_url("production_entry/0");?>" class="btn text-white btn-primary">New Production Entry</a>
+               <a  href="<?php echo base_url("production_entry/0");?>" class="btn text-white btn-primary">Add Production</a>
         </div>
    
     </div>

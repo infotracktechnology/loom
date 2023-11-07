@@ -343,8 +343,6 @@ app.controller('myCtrl', function($scope, $http, $filter) {
 })
 
 
-
-
 </script>
 </body>
 </html>
