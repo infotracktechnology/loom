@@ -27,7 +27,12 @@
      <div class="card card-primary">
      <div class="card-header">
       <h4>Production Entry</h4>
+      <div class="card-header-action">
+      <a class="btn btn-primary" href="#">Go Back</a>
+      </div>
+      
      </div>
+     
   <div class="card-body">
  
      <div class="row">
@@ -75,6 +80,88 @@
         <option ng-repeat="loom in looms" value="{{loom.loom_id}}">{{loom.Loom_No}}</option>
         </select>
         </div>
+
+        <div class="col-md-2 form-group">
+        <label> Start Time</label>
+  <input type="time"  class="form-control form-control-sm" required>
+</div>
+
+<div class="col-md-2 form-group">
+  <label> End Time</label>
+  <input type="time"  class="form-control form-control-sm" required>
+</div>
+
+<div class="col-md-2 form-group">
+  <label> Product</label>
+  <input type="text"  class="form-control form-control-sm" required>
+</div>
+
+<div class="col-md-2 form-group">
+  <label> Warp Yarn</label>
+  <input type="text"  class="form-control form-control-sm" required>
+</div>
+
+<div class="col-md-2 form-group">
+  <label> Weft Yarn</label>
+  <input type="text"  class="form-control form-control-sm" required>
+</div>
+
+<div class="col-md-2 form-group">
+  <label> Dhothi</label>
+  <input type="text"  class="form-control form-control-sm" required>
+</div>
+
+<div class="col-md-2 form-group">
+  <label> Wastage</label>
+  <input type="text"  class="form-control form-control-sm" required>
+</div>
+
+<div class="col-md-2 form-group">
+  <label> Size</label>
+  <input type="text"  class="form-control form-control-sm" required>
+</div>
+
+<div class="col-md-2 form-group">
+  <label> Pick</label>
+  <input type="text"  class="form-control form-control-sm" required>
+</div>
+
+<div class="col-md-2 form-group">
+  <label> Coolie</label>
+  <input type="text"  class="form-control form-control-sm" required>
+</div>
+
+<div class="col-md-2 form-group">
+  <label> Total</label>
+  <input type="text"  class="form-control form-control-sm" required>
+</div>
+
+<div class="col-md-6 form-group">
+ <button class="btn btn-primary">Update</button>
+</div><br>
+
+<div class="col-12">
+  <h6>History</h6>
+                <div class="table-responsive">
+                <table id="myTable" class="table table-bordered table-sm table-primary" style="width:100%;overflow-x:auto;">
+    
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Loom</th>
+        <th scope="col">Warp Yarn</th>
+        <th scope="col">Weft Yarn</th>
+        <th scope="col">Dhothi</th>
+        <th scope="col">Total</th>
+      </tr>
+      </thead>
+
+    
+  </table>
+
+
+                </div>
+  </div>
                     </div>
                     </div>
 </div>
@@ -90,7 +177,63 @@
                   </div>
                   <div class="collapse" id="job_status">
                     <div class="card-body">
-                     
+                    <div class="row">
+                    <div class="col-md-6 form-group">
+        <label>Job Status</label>
+        <select name="loom" id="loom" ng-on-change="getLoom($event);" class="form-control form-control-sm" required>
+        <option value="" selected disabled>Select Status</option>
+        <option value="">Lunch</option>
+        <option value="">Completed</option>
+        <option value="">Help To Others</option>
+        <option value="">On Hold</option>
+        <option value="">Breakdown</option>
+        <option value="">Idel</option>
+        </select>
+        </div>
+
+        <div class="col-md-6 form-group">
+  <label> Start Time</label>
+  <input type="time"  class="form-control form-control-sm" required>
+</div>
+
+<div class="col-md-6 form-group">
+  <label> End Time</label>
+  <input type="time"  class="form-control form-control-sm" required>
+</div>
+
+<div class="col-md-6 form-group">
+  <label> Comments</label>
+  <input type="text"  class="form-control form-control-sm" required>
+</div>
+<div class="col-md-6 form-group">
+ <button class="btn btn-primary">Update</button>
+</div><br>
+
+
+<div class="col-12">
+  <h6>History</h6>
+                <div class="table-responsive">
+                <table id="myTable" class="table table-bordered table-sm table-primary" style="width:100%;overflow-x:auto;">
+    
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Sratus</th>
+        <th scope="col">Start Time</th>
+        <th scope="col">End Time</th>
+        <th scope="col">Comments</th>
+        
+      </tr>
+      </thead>
+
+    
+  </table>
+
+
+                </div>
+  </div>
+
+                    </div>
                     </div>
 </div>
 </div>
