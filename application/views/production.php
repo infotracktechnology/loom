@@ -35,7 +35,7 @@
    
     </div>
   <div class="card-body">
-  <div class="col-12">
+  <div class="row">
                 <div class="table-responsive">
                 <table id="myTable" class="table table-striped table-bordered table-sm">
     
