@@ -22,13 +22,13 @@
     <?php include_once 'sidebar.php';?>
       <div class="main-content">
  <section class="section">
- <form method="post" name="myForm"  action="" enctype="multipart/form-data">
+ 
   <div class="section-body">
      <div class="card card-primary">
      <div class="card-header">
       <h4>Production Entry</h4>
       <div class="card-header-action">
-      <a class="btn btn-primary" href="#">Go Back</a>
+      <a class="btn btn-primary" href="<?php echo base_url("production");?>">Go Back</a>
       </div>
       
      </div>
@@ -39,18 +39,18 @@
 
         <div class="col-md-2 form-group">
         <label>Production No</label>
-        <input type="text" class="form-control form-control-sm" value="<?php echo 1; ?>" ng-model="production_no" readonly>
+        <input type="text" class="form-control form-control-sm" ng-model="production.production_no" readonly>
         </div>
 
         <div class="col-md-4 form-group">
         <label>Production Date</label>
-        <input type="date" class="form-control form-control-sm" ng-model="production_date"  value="<?php echo date('Y-m-d');?>" max="<?php echo date('Y-m-d'); ?>" required>
+        <input type="date" class="form-control form-control-sm" ng-model="production.date"  max="<?php echo date('Y-m-d'); ?>" required>
         </div>
 
 
         <div class="col-md-4 form-group">
         <label>Loom Weaver</label>
-        <select name="loom_weaver" ng-model="loom_weaver" class="form-control form-control-sm" required>
+        <select name="loom_weaver" ng-model="production.operator" class="form-control form-control-sm" required>
         <option value="" selected disabled>Select Loom Weaver</option>
         <option ng-repeat="loom_weaver in loom_weavers" value="{{loom_weaver.id}}">{{loom_weaver.Name}}</option>
         </select>
@@ -72,15 +72,17 @@
                   </div>
                   <div class="collapse" id="loom_details">
                     <div class="card-body">
+                    <form method="post" ng-submit="AddLoom($event);"  enctype="multipart/form-data">
                     <div class="row">
-                    <div class="col-md-2 form-group">
+                     
+                    <div  class="col-md-2 form-group">
         <label>Loom</label>
         <select name="loom" id="loom" ng-on-change="getLoom($event);" class="form-control form-control-sm" required>
         <option value="" selected disabled>Select Loom</option>
         <option ng-repeat="loom in looms" value="{{loom.loom_id}}">{{loom.Loom_No}}</option>
         </select>
         </div>
-
+    
         <div class="col-md-2 form-group">
         <label> Start Time</label>
   <input type="time" name="start_time" class="form-control form-control-sm" required>
@@ -93,22 +95,22 @@
 
 <div class="col-md-2 form-group">
   <label> Product</label>
-  <input type="text" name="product" class="form-control form-control-sm" required>
+  <input type="text" name="product" ng-value="data.product_name" class="form-control form-control-sm" readonly>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Warp Yarn</label>
-  <input type="text" name="warp_yarn" class="form-control form-control-sm" required>
+  <input type="text" name="warp_yarn" ng-value="data.warp_yarn" class="form-control form-control-sm" readonly>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Weft Yarn</label>
-  <input type="text" name="weft_yarn" class="form-control form-control-sm" required>
+  <input type="text" name="weft_yarn" ng-value="data.weft_yarn" class="form-control form-control-sm" readonly>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Dhothi</label>
-  <input type="text" name="dhothi" class="form-control form-control-sm" required>
+  <input type="text" name="dhothi" ng-on-input="getDhothi($event);" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-2 form-group">
@@ -118,36 +120,36 @@
 
 <div class="col-md-2 form-group">
   <label> Size</label>
-  <input type="text" name="size" class="form-control form-control-sm" required>
+  <input type="text" name="size" ng-value="data.size" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Pick</label>
-  <input type="text" name="pick" class="form-control form-control-sm" required>
+  <input type="text" name="pick" ng-value="data.pick" class="form-control form-control-sm" required>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Coolie</label>
-  <input type="text" name="coolie" class="form-control form-control-sm" required>
+  <input type="text"  ng-value="data.coolie" name="coolie" class="form-control form-control-sm" readonly>
 </div>
 
 <div class="col-md-2 form-group">
   <label> Total</label>
-  <input type="text" name="total" class="form-control form-control-sm" required>
+  <input type="text" name="total" ng-value="data.total" class="form-control form-control-sm" readonly>
 </div>
 
 <div class="col-md-6 form-group">
- <button class="btn btn-primary">Update</button>
+ <button type="submit"  class="btn btn-primary">Update</button>
 </div>
 
 <div class="col-12">
   <h6>History</h6>
                 <div class="table-responsive">
-                <table id="myTable" class="table table-bordered table-sm table-primary" style="width:100%;overflow-x:auto;">
+                <table class="table table-sm table-secondary table-bordered">
     
     <thead>
       <tr>
-        <th scope="col">Date</th>
+        <th scope="col">S.No</th>
         <th scope="col">Loom</th>
         <th scope="col">Warp Yarn</th>
         <th scope="col">Weft Yarn</th>
@@ -155,6 +157,16 @@
         <th scope="col">Total</th>
       </tr>
       </thead>
+      <tbody>
+        <tr ng-repeat="row in entry">
+          <td>{{$index+1}}</td>
+          <td>{{row.loom}}</td>
+          <td>{{row.warp_yarn}}</td>
+          <td>{{row.weft_yarn}}</td>
+          <td>{{row.dhothi}}</td>
+          <td>{{row.total}}</td>
+        </tr>
+      </tbody>
 
     
   </table>
@@ -163,6 +175,7 @@
                 </div>
   </div>
                     </div>
+                    </form>
                     </div>
 </div>
 </div>
@@ -177,6 +190,7 @@
                   </div>
                   <div class="collapse" id="job_status">
                     <div class="card-body">
+                    <form method="post" ng-submit="AddStatus($event);"  enctype="multipart/form-data">
                     <div class="row">
                     <div class="col-md-6 form-group">
         <label>Job Status</label>
@@ -213,19 +227,27 @@
 <div class="col-12">
   <h6>History</h6>
                 <div class="table-responsive">
-                <table id="myTable" class="table table-bordered table-sm table-primary" style="width:100%;overflow-x:auto;">
+                <table class="table table-sm table-secondary table-bordered">
     
     <thead>
       <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Sratus</th>
+        <th scope="col">S.No</th>
+        <th scope="col">Status</th>
         <th scope="col">Start Time</th>
         <th scope="col">End Time</th>
         <th scope="col">Comments</th>
         
       </tr>
       </thead>
-
+      <tbody>
+        <tr ng-repeat="row in status">
+          <td>{{$index+1}}</td>
+          <td>{{row.status}}</td>
+          <td>{{row.start_time}}</td>
+          <td>{{row.end_time}}</td>
+          <td>{{row.comments}}</td>
+        </tr>
+      </tbody>
     
   </table>
 
@@ -234,12 +256,13 @@
   </div>
 
                     </div>
+                    </form>
                     </div>
 </div>
 </div>
 
 </div>
- </form>
+ 
 </section>
 </div>
 </div>
@@ -264,13 +287,15 @@
   
 const app = angular.module('myApp', []);
 const baseUrl = '<?php echo base_url();?>';
-app.controller('myCtrl', function($scope, $http) {
+app.controller('myCtrl', function($scope, $http, $filter) {
+  $scope.looms = <?php echo json_encode($looms);?>;
+  $scope.loom_weavers = <?php echo json_encode($loom_weavers);?>;
+  $scope.production = <?php echo json_encode($production);?>;
+  $scope.entry = <?php echo json_encode($entry);?>;
+  $scope.status = <?php echo json_encode($status);?>;
+  $scope.production.date = new Date($scope.production.date);
+  $scope.data={};
 
-  $scope.looms = angular.fromJson(<?php echo json_encode($looms);?>);
-  $scope.loom_weavers = angular.fromJson(<?php echo json_encode($loom_weavers);?>);
-  $scope.data = {};
-  const form_data = new FormData($('#myForm')[0]);
-  
   $scope.getLoom = function(e){
     var loom_id = e.target.value;
     $http.get(baseUrl+'api/loom/'+loom_id).then(function(response){
@@ -283,6 +308,35 @@ app.controller('myCtrl', function($scope, $http) {
     $scope.data.warp_yarn = (dhothi * $scope.data.size).toFixed(2);
     $scope.data.weft_yarn = ((1000 / $scope.data.grm)*($scope.data.size)).toFixed(2);
     $scope.data.total = (dhothi*$scope.data.coolie).toFixed(2);
+  }
+
+  $scope.AddLoom = function(e){
+    if(!$scope.production.operator) {
+      alert('Please Select Loom Weaver');
+      return false;
+    }
+    const data = new FormData(e.target);
+    data.append('pid',$scope.production.id);
+    data.append('operator',$scope.production.operator);
+    data.append('Loom_No',$scope.data.Loom_No);
+    data.append('product_id',$scope.data.id);
+    data.append('date',$filter('date')($scope.production.date,'yyyy-MM-dd'));
+    $http.post(baseUrl+'production_loom',data,{headers: {'Content-Type': undefined}}).then(function(response){
+      $(e.target).trigger('reset');
+      $scope.data = {};  
+      $scope.entry.push(response.data);
+    })
+  }
+
+  $scope.AddStatus = function(e){
+    const data = new FormData(e.target);
+    data.append('pid',$scope.production.id);
+    data.append('Loom_No',$scope.data.Loom_No);
+    data.append('date',$filter('date')($scope.production.date,'yyyy-MM-dd'));
+    $http.post(baseUrl+'production_status',data,{headers: {'Content-Type': undefined}}).then(function(response){
+      $(e.target).trigger('reset');
+      $scope.status.push(response.data);
+    })
   }
 
 })

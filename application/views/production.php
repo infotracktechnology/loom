@@ -35,7 +35,39 @@
    
     </div>
   <div class="card-body">
+  <div class="col-12">
+                <div class="table-responsive">
+                <table id="myTable" class="table table-striped table-bordered table-sm">
     
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Production No</th>
+        <th scope="col">Production Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+
+    <tbody>
+      <?php
+      foreach($production as $key => $row) {
+      ?>
+      <tr>
+       <td><?php echo $key+1; ?></td>
+       <td><?php echo $row['production_no']; ?></td>
+       <td><?php echo $row['date']; ?></td>
+       <td><?php echo $row['status']; ?></td>
+       <td><a href="<?php echo base_url("production_entry/$row[id]");?>" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a></td>
+      </tr>
+      <?php } ?>
+   
+    </tbody>
+  </table>
+
+
+                </div>
+  </div>
   
 </div>
 </div>
@@ -61,7 +93,12 @@
 <script src="<?php echo base_url();?>assets/bundles/datatables/datatables.min.js"></script>
 <script src="<?php echo base_url();?>assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
-
+<script type="text/javascript">
+ const mytable = $('#myTable').DataTable({
+    "autoWidth": true,
+    "responsive": true,
+  });
+</script>
 </body>
 </html>
 
