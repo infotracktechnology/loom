@@ -25,11 +25,11 @@
      <div class="card card-primary">
     <div class="card-header row">
 
-         <div class="col-10">
+         <div class="col-lg-10">
             <h4> Production List</h4>
          </div>
         
-         <div class="col-2 float-right">
+         <div class="col-lg-2 float-right">
                <a  href="<?php echo base_url("production_entry/0");?>" class="btn text-white btn-primary">Add Production</a>
         </div>
    
@@ -95,8 +95,6 @@
 
 <script type="text/javascript">
  const mytable = $('#myTable').DataTable({
-    "autoWidth": true,
-    "responsive": true,
   });
 </script>
 </body>
