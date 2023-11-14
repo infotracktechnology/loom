@@ -164,7 +164,7 @@
           <td>{{row.warp_yarn}}</td>
           <td>{{row.weft_yarn}}</td>
           <td>{{row.dhothi}}</td>
-          <td>{{row.total}}</td>
+          <td>{{row.total}}</td>           
         </tr>
       </tbody>
 
